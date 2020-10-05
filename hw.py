@@ -13,18 +13,20 @@ def funcExercise2(array, N):
     return array[N-1]**N
 
 
-print("Ex2:", funcExercise1(array, 9), funcExercise1(array, 10))
+print("Ex2:", funcExercise2(array, 9), funcExercise2(array, 10))
 
 # 3
-data = "sberbank"
+data = "sberrrrbank"
 
 
 def funcExercise3(string, symbol):
     isFirst = True
+    index = -1
     for i in list(string):
+        index += 1
         if symbol == i:
             if isFirst == False:
-                return i
+                return index
             isFirst = False
 
 
