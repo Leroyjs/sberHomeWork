@@ -45,86 +45,47 @@ def funcExercise4(number):
     return quantity
 
 
-print("Ex4:", funcExercise4(data))
+import re
 
-# 5
-data = "sberbank"
+#1
 
+#2
+data="de3u sds3dfs sdcds deu sdsdfs sdsdfs sd3cds "
 
-def funcExercise5(string):
-    return string[::-1]
+def funcExercise2(string):
+  if re.search(r'\b[a-zA-Z]+\b \b[a-zA-Z]+\b \b[a-zA-Z]+\b', string) is not None:
+    return True
+  return False
 
+print("Ex2:",funcExercise2(data))
 
-print("Ex5:", funcExercise5(data))
+#3
+data="ddeeeeedddddd222222222"
 
-# 6
-array = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-arraySecond = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+def funcExercise3(string):
+  maxCount=0
+  currentCount=0
+  currentSymbol=False
+  for i in list(string):
+    if i == currentSymbol:
+      currentCount+=1
+    else:
+      currentCount = 1
+      currentSymbol= i
+    if currentCount > maxCount:
+        maxCount = currentCount
+  return maxCount    
 
+print("Ex3:",funcExercise3(data))
 
-def funcExercise6(array):
-    firstElement = array[0]
-    newArray = array[1:]
-    isIdentical = True
-    for i in newArray:
-        if i == firstElement:
-            isIdentical = False
-    return isIdentical
+#4
+data="ddHeeEeL L eOe=-=-234~_-+dddddd222222222"
 
+def funcExercise4(string):
+  correctString = ''
+  for i in list(string):
+    if re.search(r'[A-Z]', i) is not None:
+      correctString+=i
+  return correctString
 
-print("Ex6:", funcExercise6(array), funcExercise6(arraySecond))
-
-# 7
-
-data = "defffffffffffffr4fHHf"
-
-
-def funcExercise7(password):
-    if re.search('^(?=.*[0-9].*)(?=.*[a-z].*)(?=.*[A-Z].*)[0-9a-zA-Z]{16,}$', password) is not None:
-        return True
-    return False
-
-
-print("Ex7:", funcExercise7(data))
-
-# 8
-data = [1, [2, 2, [3], 2], ['dere', True, [[[[[[[[99999]]]]]]]]], [1], 4]
-
-
-def funcExercise8(array):
-    newArray = []
-
-    for item in array:
-        if isinstance(item, list):
-            newArray.extend(funcExercise8(item))
-        else:
-            newArray.append(item)
-
-    return newArray
-
-
-print("Ex8:", funcExercise8(data))
-
-# 9
-data = {'a': 1.002, 'b': 1.001, 'c': 0.100, 'd': 999, }
-
-
-def funcExercise9(dictionary):
-    return max(dictionary, key=dictionary.get)
-
-
-print("Ex9:", funcExercise9(data))
-
-# 10
-array = [1, 2, 3, 1, 3, 4, 4, 4, "4", "4", "1", [1], [1], [2]]
-
-
-def funcExercise10(inputArray):
-    outputArray = []
-    for i in inputArray:
-        if inputArray.count(i) >= 2:
-            outputArray.append(i)
-    return outputArray
-
-
-print("Ex10:", funcExercise10(array))
+print("Ex4:",funcExercise4(data))
